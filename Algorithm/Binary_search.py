@@ -1,3 +1,45 @@
+# 개선사항 : for문의 범위 때문에 찾았음에도 불구하고 for문을 채울때까지 돌아가는 경우가 생김
+# 굉장히 비효율적
+def binary_search(element, some_list):
+    start_index = 0
+    end_index = len(some_list) -1
+
+
+    while start_index <= end_index:
+        mid = (start_index + end_index) // 2
+        print(start_index, end_index)
+
+        if some_list[mid] == element:
+            return mid
+
+        elif some_list[mid] > element:
+            end_index = mid -1
+
+        elif some_list[mid] < element:
+            start_index = mid + 1
+
+
+# def binary_search(element, some_list):
+#     start_index = 0
+#     end_index = len(some_list) - 1
+#     count = 0
+#
+#     while start_index <= end_index:
+#         count += 1
+#         print(count)
+#         midpoint = (start_index + end_index) // 2
+#         if some_list[midpoint] == element:
+#             return midpoint
+#         elif some_list[midpoint] > element:
+#             end_index = midpoint - 1
+#         else:
+#             start_index = midpoint + 1
+#     return None
+
+print(binary_search(5, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 41, 43, 47, 53]))
+
+
+'''
 def binary_search(element, some_list):
     mid = len(some_list) // 2
 
@@ -11,7 +53,6 @@ def binary_search(element, some_list):
         elif some_list[mid] < element:
             mid = (mid + len(some_list)) // 2
 
-'''
 elif some_list[mid] < element:
     return mid = mid + len(some_list)-1) // 2)
 
