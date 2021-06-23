@@ -1,21 +1,26 @@
 def trapping_rain(buildings):
-    right_max, left_max = 0, 0
-    total_rain = 0
+    max_right = 0
+    max_left = 0
+    save_water = 0
 
     for i in range(len(buildings)):
+        point = buildings[i]
+
+        # 오른쪽 최대 높이
+        if len(buildings[i:]) != 0:
+            max_right = max(buildings[i:])
+
+        if len(buildings[:i]) != 0:
+            max_left = max(buildings[:i])
+
         if i != 0:
-            for j in range(len(buildings[:i])):
-                check_left_max = buildings[j]
-                left_max = max(check_left_max, buildings[j])
+            water = min(max_right, max_left) - point
+            if water < 0: pass
+            elif water >= 0: save_water += water
 
-            for k in range(len(buildings[i:])):
-                #print("k값", k)
-                check_right_max = buildings[k]
-                right_max = max(check_right_max, buildings[k])
+        # print(i, max_right, max_left, save_water)
 
-        fill = buildings[i] - min(right_max, left_max)
-        total_rain += fill
-    return total_rain
+    return save_water
 
 
 print(trapping_rain([3, 0, 0, 2, 0, 4]))
