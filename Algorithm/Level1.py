@@ -1,7 +1,6 @@
 # 브루트포스 방식 사용
 def sublist_max(profits):
     best_profit = []
-    profit = 0
 
     for start in range(len(profits)):
         for end in range(len(profits)):
