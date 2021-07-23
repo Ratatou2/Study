@@ -11,6 +11,7 @@ def fib_tab(n):
     else:
         for i in range(3, n+1):
             fib_dic[i] = fib_dic[i-2] + fib_dic[i-1]
+            print(i, fib_dic[i])
 
     return fib_dic[n]
 
